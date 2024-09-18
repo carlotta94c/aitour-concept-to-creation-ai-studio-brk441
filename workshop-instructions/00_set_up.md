@@ -10,7 +10,7 @@
 
 - You will need an IDE to build and test your first LLMs-based application. You can choose to run a [GitHub Codespace](https://github.com/features/codespaces) in the browser - **recommended option** - or work on your local [Visual Studio Code](https://code.visualstudio.com/) desktop app. You can click on the button below to open this repo in a GitHub Codespace.
 
- [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=848158252&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
+ [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=experts-live-eu-2024&repo=848158252&skip_quickstart=true)
 
  >[!NOTE] 
  > To use GitHub Codespaces, you need to have a GitHub Account. If you haven't one  already, please do [sign up for a free account](https://github.com/signup). 
