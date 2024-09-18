@@ -1,6 +1,6 @@
-# Demo 2 - Prompt Engineering Techniques in the Azure AI Studio Playground
+# Part 2 - Prompt Engineering Techniques in the Azure AI Studio Playground
 
-The goal of this demo is to experiment with prompt engineering techniques in the Playground of Azure AI Studio. Before starting, make sure you completed the [Setup](set_up.md) steps. Also, if you are not familiar with Azure AI Studio yet, we recommend you to go through the [Get Started with Azure AI Studio](demo1_get_started_with_Azure_AI_Studio.md) demo first.
+The goal of this demo is to experiment with prompt engineering techniques in the Playground of Azure AI Studio. Before starting, make sure you completed the [Setup](00_set_up.md) steps. Also, if you are not familiar with Azure AI Studio yet, we recommend you to go through the [Get Started with Azure AI Studio](01_get_started_with_Azure_AI_Studio.md) section first.
 
 ## Text generation
 

@@ -1,10 +1,6 @@
-# From Concept to Creation with Azure AI Studio
+## Workshop Description
 
-This repo hosts the material for the Microsoft AI Tour session *From Concept to Creation in Azure AI Studio*.
-
-## Session Description
-
-When developing a generative AI application, selecting the right model is an essential first step. However, the true differentiator lies in how you utilize your input. In this session, you will discover how to maximize the potential of your model through advanced prompt engineering techniques, integrating your model with various data sources, and enabling it to perform actionable tasks. Additionally, you will learn how to leverage Azure AI Studio as the ideal platform to start building custom AI solutions.
+When developing a generative AI application, selecting the right model is an essential first step. However, the true differentiator lies in how you utilize your input. In this workshop, you will discover how to maximize the potential of your model through advanced prompt engineering techniques, integrating your model with custom data sources, and enabling it to perform actionable tasks. Additionally, you will learn how to leverage Azure AI Studio as the ideal platform to start building custom AI solutions.
 
 ## Learning Outcomes
 

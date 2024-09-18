@@ -1,20 +1,16 @@
-# Demo 3 - Add your own data with Prompty
+# Part 3 - Add your own data with Prompty
 
-In the previous demo you discovered the Playground and interacted with the model through the chat interface. In this demo, you will learn how to build your first gen AI application with [Prompty](https://prompty.ai/) and connect it to your business data, to provide accurate responses grounded on your data sources.
+In the previous part you discovered the Playground and interacted with the model through the chat interface. In this section, you will learn how to build your first gen AI application with [Prompty](https://prompty.ai/) and connect it to your business data, to provide accurate responses grounded on your data sources.
 
-In addition to the general pre-requisites defined in the [setup](./set_up.md) guidance, you need to install some additional dependencies to be able to execute your application flow.
+*Warning* If you are **not** in a GitHub Codespaces envirnoment, in addition to the general pre-requisites defined in the [setup](./00_set_up.md) guidance, you need to install some further dependencies to be able to execute your application flow.
 
 1. Verify you have Python3 installed on your machine.
 2. Install dependecies with `pip install -r requirements.txt`.
 3. Install the [prompty VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.prompty). Make sure you switch to the *pre-release* version to get the latest updates.
 
-If you prefer, you can also rely on a pre-built environment which has all the dependecies already installed for you. Just click the button below to open this repo into a [GitHub Codespace](https://github.com/codespaces).
-
- [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826281335&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
-
 ## Add your data to Azure AI Studio Hub
 
-In the [setup](./media/set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Studio hub. Now you will populate your Azure AI Search service with your business data.
+In the [setup](./00_set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Studio hub. Now you will populate your Azure AI Search service with your business data.
 
 Let's start by adding a new data source to your Azure AI Studio Hub.
 
@@ -74,5 +70,5 @@ To better visualize the results and also inspect intermediate steps, you can rel
 Differently from the results we got by interacting with the model in the Playground, you can see as this answer is grounded in the products catalog information you uploaded in your Azure AI Studio project. Your application used the user query to retrieve the product information relevant to the tents page and then used it to ground the final output.
 
 > [!TIP]
-> If you face any issue in visualizing the Promptt traces UI, click the *Split Editor Right* button at the top right corner.
+> If you face any issue in visualizing the Prompty traces UI, click the *Split Editor Right* button at the top right corner.
 ![Split editor button](./media/split_editor_button.png)

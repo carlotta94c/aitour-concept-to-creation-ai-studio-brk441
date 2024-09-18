@@ -1,10 +1,10 @@
-# Demo 1 - Get Started with Azure AI Studio
+# Part 1 - Get Started with Azure AI Studio
 
-The goal of this demo is to get familiar with the main features of Azure AI Studio. Before starting, make sure you completed the [Setup](set_up.md) steps.
+The goal of this section is to get familiar with the main features of Azure AI Studio. Before starting, make sure you completed the [Setup](00_set_up.md) steps.
 
 ## Hub overview
 
-First thing first, explore the hub you created in the setup phase, by navigating to the *Hub overview*. Here you can see and manage the main components of the hub:
+First thing first, explore the hub you created in the setup phase, by navigating to [Azure AI Studio landing page](ai.azure.com). You can visualize the *Hub overview* by selecting *All resources* in the left-hand side menu and then clicking on your hub's name. Here you can see and manage the main components of the hub:
 
 - **Projects**: A project is a resource within Azure AI Studio that grants you access to most of the platform's features, such as the **Playgrounds**. 
 - **Description**: A short description of the Azure AI Studio Hub you are in.
