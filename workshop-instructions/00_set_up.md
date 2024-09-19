@@ -4,7 +4,7 @@
 
 ## Prerequistes: 
 
-- You will need an Azure account. If you are an attendee of the Experts Live EU pre-day conf workshop, you'll be given an Azure pass along with the instructions to redeem the promo code.
+- You will need an Azure account. If you are an attendee of the Experts Live EU pre-day conf workshop, you'll be given an Azure pass along with the instructions to redeem the promo code. Please find step-by-step procedure [here](https://www.microsoftazurepass.com/Home/HowTo).
 
 >[!NOTE] Do not redeem promo code with an email account that is attached to an Enterprise Account or an email account you already used to redeem another Azure pass - it will not work. If needed, you can create a [new Microsoft account](https://signup.live.com/signup?sru=https%3a%2f%2flogin.live.com%2foauth20_authorize.srf%3flc%3d1033%26client_id%3d81feaced-5ddd-41e7-8bef-3e20a2689bb7%26mkt%3dEN-US%26opid%3d7C5DB83D1ABD4491%26opidt%3d1726652133%26uaid%3dd485e211148e4d7ca419bcf0bcb85b03%26contextid%3dBCC91F640A71C3DD%26opignore%3d1&mkt=EN-US&uiflavor=web&lw=1&fl=easi2&client_id=81feaced-5ddd-41e7-8bef-3e20a2689bb7&uaid=d485e211148e4d7ca419bcf0bcb85b03&suc=81feaced-5ddd-41e7-8bef-3e20a2689bb7&lic=1) to claim your benefit.
 
