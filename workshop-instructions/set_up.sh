@@ -1,15 +1,26 @@
-#!/bin/bash  
+#!/bin/bash
 
-prefix="expLive"
-location="swedencentral"
+# Prompt for location with default value
+read -p "Enter the prefix (default: explive): " explive
+prefix=${prefix:-explive}
+
+# Prompt for location with default value
+read -p "Enter the location (default: swedencentral): " location
+location=${location:-swedencentral}
+
+read -p "Enter the resource group name (default: workshop): " resource_group_name
+resource_group_name=${resource_group_name:-workshop}
+
 subscription_id=$(az account show --query id --output tsv)
 user_id=$(az ad signed-in-user show --query id --output tsv)
 
-ai_resource_name="$prefix-$(shuf -i 1000-9999 -n 1)"
-echo "Resource name: $ai_resource_name"  
+# Install the Azure Machine Learning CLI extension
+az extension add -n ml
 
-# Create the resource group
-ai_resource_name_resource_group_name=$ai_resource_name"_RG"
+# Create a resource group
+ai_resource_name="$prefix-$resource_group_name"
+echo "Resource name: $ai_resource_name"
+ai_resource_name_resource_group_name=$ai_resource_name"_rg"
 echo "Creating resource group: $ai_resource_name_resource_group_name"
 az group create --name $ai_resource_name_resource_group_name --location $location > null
 
@@ -33,11 +44,11 @@ az cognitiveservices account create --kind AIServices --location $location --nam
 echo "Deploying GPT-4o"
 az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4o" --model-name "gpt-4o" --model-version "2024-05-13" --model-format "OpenAI" --sku-capacity "1" --sku-name "Standard" --capacity "20"
 
-# Deploying GPT-4 in Azure AI Service
+# Deploying GPT-4 with reduced capacity
 echo "Deploying GPT-4"
 az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4" --model-name "gpt-4" --model-format "OpenAI" --model-version "0613" --sku-capacity "1" --sku-name "Standard" --capacity "20"
 
-# Deploying GPT-4 in Azure AI Service
+# Deploying text-embedding-ada-002 in Azure AI Service
 echo "Deploying Text-embedding-ada-002"
 az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "text-embedding-ada-002" --model-name "text-embedding-ada-002" --model-format "OpenAI" --model-version "2" --sku-capacity "1" --sku-name "Standard" --capacity "20"
 
@@ -46,35 +57,35 @@ echo "Adding AI Service Connection to the HUB"
 ai_service_resource_id=$(az cognitiveservices account show --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --query id --output tsv)
 ai_service_api_key=$(az cognitiveservices account keys list --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --query key1 --output tsv)
 
-rm connection.yml   
-echo "name: $ai_resource_ai_service" >> connection.yml  
-echo "type: azure_ai_services" >> connection.yml  
-echo "endpoint: https://$location.api.cognitive.microsoft.com/" >> connection.yml  
-echo "api_key: $ai_service_api_key" >> connection.yml  
-echo "ai_services_resource_id:  $ai_service_resource_id" >> connection.yml  
+rm connection.yml
+echo "name: $ai_resource_ai_service" >> connection.yml
+echo "type: azure_ai_services" >> connection.yml
+echo "endpoint: https://$location.api.cognitive.microsoft.com/" >> connection.yml
+echo "api_key: $ai_service_api_key" >> connection.yml
+echo "ai_services_resource_id:  $ai_service_resource_id" >> connection.yml
 
 az ml connection create --file connection.yml --resource-group $ai_resource_name_resource_group_name --workspace-name  $ai_resource_name_hub_name > null
-rm connection.yml 
+rm connection.yml
 
 az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/$subscription_id/resourceGroups/$ai_resource_name_resource_group_name --assignee-principal-type User --assignee-object-id $user_id
 
 # Search service creation
 tmp_name=$ai_resource_name"-aisearch"
-ai_resource_ai_search="${tmp_name,,}"
-az search service create --name $ai_resource_ai_search --resource-group $ai_resource_name_resource_group_name --sku basic --partition-count 1 --replica-count 1
+ai_resource_ai_search="${tmp_name}"
+az search service create --name $ai_resource_ai_search --resource-group $ai_resource_name_resource_group_name --sku basic --partition-count 1
 
 search_url="https://"$ai_resource_ai_search".search.windows.net"
 search_key=$(az search admin-key show --service-name $ai_resource_ai_search --resource-group $ai_resource_name_resource_group_name --query primaryKey --output tsv)
 
-echo "name: $ai_resource_ai_search" >> connection_search.yml  
-echo "type: azure_ai_search" >> connection_search.yml  
-echo "endpoint: $search_url" >> connection_search.yml  
-echo "api_key: $search_key" >> connection_search.yml  
+echo "name: $ai_resource_ai_search" >> connection_search.yml
+echo "type: azure_ai_search" >> connection_search.yml
+echo "endpoint: $search_url" >> connection_search.yml
+echo "api_key: $search_key" >> connection_search.yml
 
 az ml connection create --file connection_search.yml --resource-group $ai_resource_name_resource_group_name --workspace-name  $ai_resource_name_hub_name > null
-rm connection_search.yml  
+rm connection_search.yml
 
-# create an .env file with hard-coded values for local demos and testing.  
+# create an .env file with hard-coded values for local demos and testing.
 
 echo "An .env file with hard-coded values for local demos and testing has been created in the src directory"
 echo "Please do not share this file, or commit this file to the repository"
